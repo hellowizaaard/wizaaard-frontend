@@ -1,0 +1,5 @@
+@import '../public/css/layouts.css';
+
+.pointer {
+    cursor: pointer;
+}
