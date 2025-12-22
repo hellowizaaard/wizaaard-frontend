@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { routeUrls } from '../../../config/route-urls.const';
 import { AuthService } from '../../../services/auth';
 
@@ -28,4 +28,23 @@ export class Header {
   logout():void {
     this.auth.logout();
   }
+menuOpen = false;
+
+toggleMenu(event: Event) {
+  event.stopPropagation();
+  this.menuOpen = !this.menuOpen;
+}
+
+navigate(route: string) {
+  this.menuOpen = false;
+  // this.router.navigate([route]);
+}
+
+// Close on outside click
+@HostListener('document:click')
+closeMenu() {
+  this.menuOpen = false;
+}
+
+
 }

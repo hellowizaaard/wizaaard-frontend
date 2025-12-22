@@ -1,53 +1,50 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <div class="container-fluid">
+<nav class="navbar navbar-light bg-light fixed-top">
+    <div class="container position-relative">
 
-        <!-- Left: Brand -->
+        <!-- LEFT: LOGO -->
         <a class="navbar-brand d-flex align-items-center" href="#">
-            <img src="img/logo.png" alt="Logo" class="d-inline-block align-text-top me-2">
+            <img src="img/Group.png" class="me-2">
+            <img src="img/Group_logo.png">
         </a>
 
-        <!-- Center: Toggler + Nav links -->
-        <button class="navbar-toggler mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCenter" aria-controls="navbarCenter" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <!-- RIGHT SIDE -->
+        <div class="d-flex align-items-center ms-auto position-relative">
 
-        <div class="collapse navbar-collapse justify-content-center" id="navbarCenter">
-            <ul class="navbar-nav mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="routeUrls?.home" routerLinkActive="active">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="routeUrls?.aboutUs" routerLinkActive="active">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="routeUrls?.faq" routerLinkActive="active">FAQ</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="routeUrls?.contact" routerLinkActive="active">Contact</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="routeUrls?.termsConditions" routerLinkActive="active">Terms & Conditions</a>
-            </li>
-            </ul>
+            @if(!user) {
+            <a [routerLink]="routeUrls?.login" class="btn btn-outline-primary me-2">
+                Start with Login
+            </a>
+            <a [routerLink]="routeUrls?.register" class="btn btn-primary me-3" style="background:#000D33;">
+                Register
+            </a>
+            }
+
+            @else {
+            <div ngbDropdown class="me-3">
+                <a class="nav-link" ngbDropdownToggle>{{ user?.name }}</a>
+                <div ngbDropdownMenu class="dropdown-menu-end">
+                    <a ngbDropdownItem [routerLink]="routeUrls?.profile">Profile</a>
+                    <a ngbDropdownItem (click)="logout()">Logout</a>
+                </div>
+            </div>
+            }
+
+            <!-- 🔵 HAMBURGER -->
+            <button class="custom-toggler" (click)="toggleMenu($event)">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- 🔥 POPUP MENU -->
+            <div class="menu-popup" *ngIf="menuOpen">
+                <ul class="list-unstyled m-0">
+                    <li><a (click)="navigate(routeUrls?.home)">Home</a></li>
+                    <li><a (click)="navigate(routeUrls?.aboutUs)">About</a></li>
+                    <li><a (click)="navigate(routeUrls?.faq)">FAQ</a></li>
+                    <li><a (click)="navigate(routeUrls?.contact)">Contact</a></li>
+                    <li><a (click)="navigate(routeUrls?.termsConditions)">Terms & Conditions</a></li>
+                </ul>
+            </div>
+
         </div>
-
-        <!-- Right: Buttons (always visible) -->
-        @if(!user) {
-            <div class="d-flex">
-                <a [routerLink]="routeUrls?.login" routerLinkActive="active" class="btn btn-outline-primary me-2">Login</a>
-                <a [routerLink]="routeUrls?.register" routerLinkActive="active" class="btn btn-primary">Register</a>
-            </div>
-        } @else {
-            <div class="d-flex">
-                <div ngbDropdown>
-					<a class="nav-link " tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"> {{user?.name}} </a>
-					<div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
-						<a ngbDropdownItem [routerLink]="routeUrls?.profile">Profile</a>
-						<a ngbDropdownItem class="pointer" (click)="logout()">Logout</a>
-					</div>
-				</div>
-            </div>
-        }
-
     </div>
 </nav>
