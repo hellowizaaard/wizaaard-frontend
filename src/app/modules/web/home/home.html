@@ -3,26 +3,34 @@
   <div class="">
     <p class="text-uppercase text-secondary small mb-2">More than a resume builder</p>
     <h1 class="fw-bold display-5 mb-3">
-      Your <span style="color: #00A1ED;
+      Your <span style="color: #0062FF;
 ;">resume profile</span> is your <br />
       personal <span class="text-primary">marketing</span> tool!
     </h1>
     <p class="lead text-white mx-auto w-75 mb-4">
-      Wizacard is the world’s first website experience platform — empowering both
-      rising and seasoned professionals to create, manage, and optimize digital
-      profiles that truly represent who they are.
+  "Weebird is the world’s first website experience platform—empowering both rising and seasoned
+professionals to create, manage, and optimize digital profiles that truly represent who they are."
     </p>
-    <div class="d-flex justify-content-center gap-3 mb-5">
-      <button class="btn btn-primary px-4 py-2">Join Now</button>
+    <!-- <div class="d-flex justify-content-center gap-3 mb-5">
+      <button class="btn btn-primary px-4 py-2">Create your profile</button>
       <button class="btn btn-outline-light px-4 py-2">
         <i class="bi bi-play-circle me-1"></i> Play Video
       </button>
-    </div>
+    </div> -->
+<div class="d-flex justify-content-center gap-3 mb-5">
+  <button class="btn btn-primary btn-create">
+    Create your profile
+  </button>
+
+  <button class="btn btn-video">
+    <i class="bi bi-play-fill me-1"></i> Play video
+  </button>
+</div>
 
     <!-- Dashboard Image with Fade Effect -->
     <div class="hero-dashboard position-relative d-inline-block">
-      <img src="img/dashboard-preview.png" alt="Dashboard Preview" class="img-fluid rounded-4 shadow-lg" />
-      <div class="white-fade"></div>
+      <img src="img/dashboard.png" alt="Dashboard Preview" class="img-fluid rounded-4 shadow-lg" />
+      <!-- <div class="white-fade"></div> -->
     </div>
   </div>
 </section>
@@ -86,30 +94,28 @@
 </section>
 
 
-<section class="container" style=" background: #F8F8F8;
-;">
+<section class="container" >
   <div class=" py-5">
     <div class="row align-items-center">
       <!-- LEFT SECTION -->
-      <div class="col-md-6 mt-5">
+      <div class="col-md-6">
         <div class="outer-card">
+
           <!-- Menu Card -->
           <div class="menu-card">
-            <span>Resume</span>
-            <span>Cards</span>
-            <span>Jobs</span>
-            <span>Landingpage</span>
-            <span>Templates</span>
-            <span>Mentors</span>
+            <span *ngFor="let item of menuItems" (click)="selectMenu(item)" [class.active]="activeMenu === item.label">
+              {{ item.label }}
+            </span>
           </div>
 
           <!-- Image Card -->
           <div class="image-card">
-            <img src="img/Online resume-pana.png" alt="Effortless Resume">
-            <h3>Effortless Resume</h3>
+            <img [src]="activeImage" alt="Menu Preview">
           </div>
+
         </div>
       </div>
+
 
       <!-- RIGHT SECTION -->
       <div class="col-md-6 steps ps-md-5 mt-5 mt-md-0">
@@ -152,7 +158,8 @@
 
       <!-- Left label -->
       <div class="col-md-2">
-        <p class="text-uppercase small fw-semibold mt-2" style="color: #000000; font-weight: 500; font-size: 18px; font-family: poppins;">
+        <p class="text-uppercase small fw-semibold mt-2"
+          style="color: #000000; font-weight: 500; font-size: 18px; font-family: poppins;">
           Testimonials
         </p>
       </div>
@@ -168,7 +175,8 @@
 
           <!-- Text -->
           <p class="testimonial-text">
-            "Weebird helped me land two interviews within a week. The resume making was so easy &  intuitive—professional results without needing any format skills. I feel confident applying to jobs now!"
+            "Weebird helped me land two interviews within a week. The resume making was so easy & intuitive—professional
+            results without needing any format skills. I feel confident applying to jobs now!"
           </p>
 
           <!-- User -->
@@ -200,7 +208,8 @@
 
       <!-- LEFT CONTENT -->
       <div class="col-md-4">
-        <p class="text-uppercase small fw-semibold" style="color: #000000; font-weight: 500; font-size: 18px; font-family: poppins;">FAQs</p>
+        <p class="text-uppercase small fw-semibold"
+          style="color: #000000; font-weight: 500; font-size: 18px; font-family: poppins;">FAQs</p>
         <h2 class="faq-title">
           Answers to the questions you may have in your mind...
         </h2>
@@ -220,7 +229,13 @@
               <span class="arrow"></span>
             </button>
             <div class="faq-answer">
-              Weebird is an AI-powered career platform that helps students, professionals, and freelancers showcase their skills effortlessly. From a single smart profile, it automatically generates a professional resume, personal landing page, digital NFC business card, job matches, and mentor connections. Users can access a library of templates, track career progress via the dashboard, and connect with verified professionals worldwide. Weebird removes the need for coding or design skills, making self-expression simple and impactful. It bridges talent with opportunities locally and globally, empowering users to grow their careers with confidence.
+              Weebird is an AI-powered career platform that helps students, professionals, and freelancers showcase
+              their skills effortlessly. From a single smart profile, it automatically generates a professional resume,
+              personal landing page, digital NFC business card, job matches, and mentor connections. Users can access a
+              library of templates, track career progress via the dashboard, and connect with verified professionals
+              worldwide. Weebird removes the need for coding or design skills, making self-expression simple and
+              impactful. It bridges talent with opportunities locally and globally, empowering users to grow their
+              careers with confidence.
             </div>
           </div>
 

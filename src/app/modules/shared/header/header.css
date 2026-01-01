@@ -11,6 +11,46 @@
   height: 22px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
+/* LOGIN BUTTON */
+.btn-login {
+  background: #ffffff;
+  color: #000d33;
+  border: 1.5px solid #E3E3E3;
+  padding: 10px 18px;
+  border-radius: 15px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.btn-login:hover {
+  background: #f5f7ff;
+  border-color: #000d33;
+  color: #000d33;
+}
+
+/* REGISTER BUTTON */
+.btn-register {
+  background: #000D33;
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: 15px;
+  font-weight: 500;
+  border: none;
+  transition: all 0.25s ease;
+}
+
+.btn-register:hover {
+  background: #001a66;
+  color: #ffffff;
+}
+
+/* Align height with hamburger */
+.btn-login,
+.btn-register {
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+}
 
 /* POPUP MENU */
 .menu-popup {

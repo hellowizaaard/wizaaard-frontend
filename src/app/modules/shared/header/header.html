@@ -11,12 +11,25 @@
         <div class="d-flex align-items-center ms-auto position-relative">
 
             @if(!user) {
-            <a [routerLink]="routeUrls?.login" class="btn btn-outline-primary me-2">
+            <!-- <a [routerLink]="routeUrls?.login" class="btn btn-outline-primary me-2">
                 Start with Login
             </a>
             <a [routerLink]="routeUrls?.register" class="btn btn-primary me-3" style="background:#000D33;">
                 Register
-            </a>
+            </a> -->
+            <a
+  [routerLink]="routeUrls?.login"
+  class="btn btn-login me-2"
+>
+  Start with login
+</a>
+
+<a
+  [routerLink]="routeUrls?.register"
+  class="btn btn-register me-3"
+>
+  Register now
+</a>
             }
 
             @else {
