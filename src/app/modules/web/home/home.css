@@ -448,21 +448,43 @@
     margin-bottom: 20px;
   }
 }
-/* Career Hero */
 .career-hero {
   background-color: #000d33;
   border-radius: 20px;
-  min-height: 320px;
+  /* min-height: 320px; */
   position: relative;
   overflow: hidden;
+  padding: 80px;
+}
+
+/* Right-side background image */
+.career-hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45%;
+  height: 100%;
+  background-image: url("/img/Logo-BG1.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: contain;
+  opacity: 0.35; 
+}
+
+/* Content stays above bg image */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
 }
 
 /* Headline */
 .hero-title {
   font-size: 54px;
   font-weight: 600;
-  line-height: 60px;
-  margin-bottom: 150px;
+  line-height: 1.15;
+  margin-bottom: 40px;
   font-family: 'Bricolage Grotesque';
 }
 
@@ -470,16 +492,28 @@
 .career-hero .btn-primary {
   background-color: #1677ff;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight: 500;
+  padding: 12px 28px;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
+  .career-hero {
+    padding: 30px;
+  }
+
+  .career-hero::after {
+    width: 100%;
+    opacity: 0.15;
+    background-position: center bottom;
+  }
+
   .hero-title {
     font-size: 30px;
   }
 }
+
 /* Footer */
 .weebird-footer {
   background: #0B5CFF;
@@ -491,7 +525,7 @@
 .footer-logo img {
   width: 100%;
   height: 200px;
-  object-fit: contain; /* keeps height SAME, stretches left-right */
+  object-fit: contain;
 }
 
 /* Newsletter */
